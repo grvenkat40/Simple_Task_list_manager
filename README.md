@@ -1,4 +1,4 @@
-Simple Taskclist Manager
+## Simple Taskclist Manager
 
 A simple, command-line-based **Task Management Application** built using **Python**, **Pandas**, and **Scikit-learn**.  
 This app allows users to **add**, **remove**, **list**, **prioritize**, and even **recommend** tasks intelligently — all stored locally in a CSV file.
