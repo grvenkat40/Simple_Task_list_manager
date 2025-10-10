@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Add Task</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body{
+                background: radial-gradient(circle at top right, #007BFF, #87CEEB);
+                margin: 10px;
+                display: flex;
+                justify-content: space-evenly;
+                margin: 80px auto;
+            }
+            .page{
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .task_container{
+                display: inline-block;
+                align-items: center;
+                width: 800px;
+                gap: 20px;
+            }
+            h1{
+                text-shadow: 0 0 10px rgb(0, 0, 0,0.5);
+            }
+            label{
+                color:rgb(28, 28, 100);;
+                font-size: 20px;
+                font-weight: 900;
+            }
+            #description{
+                padding: 10px;
+                border: 1px solid white;
+                border-radius: 12px;
+                font-style: italic;
+                font-weight: 700;
+            }
+            #priority{
+                padding: 10px;
+                border: 1px solid white;
+                border-radius: 12px;
+                font-style: italic;
+                font-weight: 700;
+            }
+            #priority option{
+                background: black;
+                color: rgb(255, 255, 255);
+                font-weight: 500;
+            }
+            button{
+                width: fit-content ;
+                text-decoration: none;
+                background: rgb(67, 67, 139);
+                color: rgb(255, 255, 255);
+                padding: 8px;
+                border-radius: 12px;
+                border: 1px solid rgb(67, 67, 139);
+                transition: all 0.3s ease-in-out;
+                cursor: pointer;
+            }
+            button:hover{
+                background: black;
+                transform: scale(1.02) translateY(4px);
+            }
+            .redirect img {
+                transition: transform 0.2s ease;
+                cursor: pointer;
+            }
+            .redirect img:hover {
+                transform: translateX(-3px);
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="page">
+            <div class="task_container">
+                <h1>Add task <img src="{{ url_for('static', filename='images/add-task.png') }}" width="35" height="35" alt="Back"></h1>
+                <div class="user_form">
+                    <form method="POST">
+                        <label>Description</label>
+                        <input type="text" name="description" id="description" placeholder="Task"><br><br>
+                        <label>Priority</label>
+                        <select name="priority" id="priority">
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select><br><br>
+                        <button type="submit">Add task</button>
+                    </form>
+                </div>
+            </div>
+            <div class="redirect">
+                <a href="{{ url_for('main') }}">
+                    <img src="{{ url_for('static', filename='images/arrow.png') }}" width="35" height="35" alt="Back">
+                </a>
+            </div>
+
+        </div>
+    </body>
+</html>

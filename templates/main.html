@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task List</title>
+    <style>
+        body{
+            background: radial-gradient(circle at top right, #007BFF, #87CEEB);
+            margin: 10px;
+        }
+        .page{
+            display: flex;
+            justify-content: space-evenly;
+            margin: 80px auto;
+        }
+        .task_container{
+            display: inline-block;;
+            align-items: center;
+            width: 800px;
+        }
+
+        .task_container h1{
+            text-align: center;
+        }
+        .task_list ul{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .task_list li{
+            background: rgb(247, 247, 128);
+            display: flex;
+            justify-content: space-between;
+            width:80% ;
+            border-radius: 12px;
+            list-style: none;
+            transition: all 0.3s ease-in-out;
+        }
+        .task_list li:hover{
+            transform: scale(1.01) translateX(5px);
+        }
+        .task_list span{
+            display: flex;
+            flex-direction: row;
+            padding: 10px;
+        }
+        #description{
+            color:rgb(40, 40, 94);
+            font-size: 20px;
+            font-weight: 900;
+            transition: all 0.3s ease-in-out
+        }
+        .task_list li #description {
+            transition: transform 0.2s ease;
+        }
+
+        #priority{
+            font-size:medium;
+        }
+        #completed{
+            margin-bottom: 50px;
+            background: rgb(67, 67, 139);
+            border-radius: 12px;
+            border: 1px solid rgb(0, 0, 0) ;
+            color: rgb(0, 0, 0);
+            text-shadow: 0 0 7px rgb(2, 2, 2);
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+        }
+        #completed:hover{
+            color: white;
+            background: black;
+            transform: translateY(5px);
+        }
+        .extra{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .extra a{
+            width: fit-content ;
+            text-decoration: none;
+            background: rgb(67, 67, 139);
+            color: rgb(255, 255, 255);
+            padding: 8px;
+            border-radius: 12px;
+            transition: all 0.3s ease-in-out;
+        }
+        .extra a:hover{
+            background: black;
+            transform: scale(1.02) translateY(4px);
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="task_container">
+            <h1>All Tasks <img src="{{ url_for('static', filename='images/task.png') }}" width="30" height="30" alt="Back"></h1>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                    <script>
+                        alert('{{ messages }}');
+                    </script>
+            {% endif %}
+            {% endwith %}
+            <div class="task_list">
+                <ul>
+                    {% for task in tasks %}
+                        <li><div class="tasks"> <span id="description">{{ task['description'] }}</span>  <span id="priority"> Priority: {{ task['priority'] }}</span></div> 
+                            <a href="{{ url_for('remove_task', description=task['description']) }}" id="completed"><img src="{{url_for('static',filename='images/check-mark.png')}}" width="30" height="30" alt=""></a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>      
+        </div>
+        <div class="extra">
+            <a href="{{ url_for('add_task') }}" >Add New Task</a>
+            <a href="{{ url_for('recommend_task') }}">Recommend Task</a>
+        </div> 
+    </div>
+</body>
+</html>
