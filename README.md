@@ -1,7 +1,7 @@
 from pathlib import Path
 
 # Define README content
-readme_text = """# 🗂️ Task Management App
+🗂️ Task Management App
 
 A simple, command-line-based **Task Management Application** built using **Python**, **Pandas**, and **Scikit-learn**.  
 This app allows users to **add**, **remove**, **list**, **prioritize**, and even **recommend** tasks intelligently — all stored locally in a CSV file.
@@ -16,6 +16,3 @@ This app allows users to **add**, **remove**, **list**, **prioritize**, and even
 - 🤖 Get task recommendations (powered by Scikit-learn)  
 - 💾 Data persistence via `tasks.csv`
 
-
-```bash
-python -m venv task_app
