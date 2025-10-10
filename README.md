@@ -17,4 +17,4 @@ This app allows users to **add**, **remove**, **list**, **prioritize**, and even
 
 <img width="1365" height="632" alt="Screenshot 2025-10-10 165232" src="https://github.com/user-attachments/assets/620ba18e-ddcf-434b-941e-d2b62c75b14f" />
 
-<img width="1360" height="629" alt="venkat_portfolio" src="https://github.com/user-attachments/assets/2c8d32a1-5b32-4478-9df5-83ab1685b076" />
+
